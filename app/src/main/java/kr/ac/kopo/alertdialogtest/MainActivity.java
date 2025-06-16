@@ -35,15 +35,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String[] foodItems = {"떡볶이", "만두","순대"};
                 final int[] imgRes ={R.drawable.img01, R.drawable.img02,R.drawable.img03};
+                final boolean[] checkArray ={true, false,false};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("인공지능소프트웨어과 공지사항");
-                dlg.setSingleChoiceItems(foodItems, 0,new DialogInterface.OnClickListener() {
+                dlg.setMultiChoiceItems(foodItems, checkArray ,new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        btn1.setText(foodItems[which]);
-                        imgv.setImageResource(imgRes[which]);
+                    public void onClick(DialogInterface dialog, int which, boolean ischecked) {
+                        if(ischecked){
+
+                            btn1.setText(foodItems[which]);
+                            imgv.setImageResource(imgRes[which]);
+                        }
                     }
                 });
+//                dlg.setSingleChoiceItems(foodItems, 0,new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(foodItems[which]);
+//                        imgv.setImageResource(imgRes[which]);
+//                    }
+//                });
+//                dlg.setItems(foodItems, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(foodItems[which]);
+//                        imgv.setImageResource(imgRes[which]);
+//                    }
+//                });
 //              dlg.setMessage("513호를 우리과 학생이 사용해야 한다고 친절하게 양해를 구하면 됩니다.");
                 dlg.setIcon(R.drawable.ic_launcher_foreground);
                 dlg.setPositiveButton("닫기", null);
