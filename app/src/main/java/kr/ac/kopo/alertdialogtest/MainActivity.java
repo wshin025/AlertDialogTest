@@ -37,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
                 final int[] imgRes ={R.drawable.img01, R.drawable.img02,R.drawable.img03};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("인공지능소프트웨어과 공지사항");
-                dlg.setItems(foodItems, new DialogInterface.OnClickListener() {
+                dlg.setSingleChoiceItems(foodItems, 0,new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         btn1.setText(foodItems[which]);
+                        imgv.setImageResource(imgRes[which]);
                     }
                 });
 //              dlg.setMessage("513호를 우리과 학생이 사용해야 한다고 친절하게 양해를 구하면 됩니다.");
